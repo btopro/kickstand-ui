@@ -1,0 +1,63 @@
+@import "../../../scss/00_Abstracts/index";
+
+.ks-switch {
+    display: inline-flex;
+
+    &.disabled {
+        opacity: 0.7;
+
+        .switch-control,
+        .switch-label {
+            cursor: not-allowed;
+        }
+    }
+
+    .switch-control {
+        position: relative;
+        background-color: transparent;
+        border: 0;
+        padding: 0;
+        width: 2.25rem;
+
+        &[aria-checked="true"] {
+            .toggle {
+                transform: translateX(1rem);
+                border-color: color(primary);
+                @include bg-color(primary);
+                @include transition-ease-in-out();
+            }
+        }
+
+        .track {
+            position: absolute;
+            width: 2rem;
+            height: 1rem;
+            left: 0.125rem;
+            top: 0.125rem;
+            @include mt(xxs);
+            @include radius(pill);
+            @include shadow(inner);
+            @include bg-color(light);
+        }
+
+        .toggle {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 1.25rem;
+            width: 1.25rem;
+            @include radius(circle);
+            @include bg-color(light, lighter);
+            @include border(solid, xxxs, light);
+            @include shadow();
+            @include transition-ease-in-out();
+        }
+    }
+
+    .switch-label {
+        cursor: pointer;
+        font-weight: bold;
+        @include mr(sm);
+    }
+}
