@@ -3,16 +3,7 @@
 .ks-switch {
     display: inline-flex;
 
-    &.disabled {
-        opacity: 0.7;
-
-        .switch-control,
-        .switch-label {
-            cursor: not-allowed;
-        }
-    }
-
-    .switch-control {
+    .control {
         position: relative;
         background-color: transparent;
         border: 0;
@@ -28,12 +19,18 @@
             }
         }
 
+        &:disabled,
+        &:disabled+.label {
+            opacity: 0.7;
+            cursor: not-allowed;
+        }
+
         .track {
             position: absolute;
             width: 2rem;
             height: 1rem;
             left: 0.125rem;
-            top: 0.125rem;
+            top: 0.1875rem;
             @include mt(xxs);
             @include radius(pill);
             @include shadow(inner);
@@ -42,9 +39,7 @@
 
         .toggle {
             position: relative;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            display: block;
             height: 1.25rem;
             width: 1.25rem;
             @include radius(circle);
@@ -55,9 +50,8 @@
         }
     }
 
-    .switch-label {
-        cursor: pointer;
+    .label {
         font-weight: bold;
-        @include mr(sm);
+        @include ml(sm);
     }
 }
