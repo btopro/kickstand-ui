@@ -14,7 +14,7 @@ export class Switch implements ComponentInterface {
 
     @Event() updated!: EventEmitter;
 
-    private handleClick() {
+    private clickHandler() {
         this.checked = !this.checked;
 
         this.updated.emit({
@@ -30,7 +30,7 @@ export class Switch implements ComponentInterface {
     render() {
         return (
             <Host class="ks-switch">
-                <button id={this.switchId} class="control" role="switch" aria-checked={`${this.checked}`} onClick={() => this.handleClick()} disabled={this.disable}>
+                <button id={this.switchId} class="control" role="switch" aria-checked={`${this.checked}`} onClick={() => this.clickHandler()} disabled={this.disable}>
                     <span class="track"></span>
                     <span class="toggle"></span>
                 </button>
